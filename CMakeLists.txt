@@ -32,6 +32,7 @@ target_link_libraries(test_pbkdf2_sha3 hashing pbkdf)
 
 include(GNUInstallDirs)
 install(TARGETS pbkdf
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
