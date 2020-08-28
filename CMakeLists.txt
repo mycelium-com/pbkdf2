@@ -21,8 +21,8 @@ set_target_properties(pbkdf PROPERTIES
    PUBLIC_HEADER "include/pbkdf.h"
 )
 
-add_executable(test_pbkdf2_sha2 misc/pbkdf2_test_sha2.c $<TARGET_OBJECTS:pbkdf>)
-add_executable(test_pbkdf2_sha3 misc/pbkdf2_test_sha3.c $<TARGET_OBJECTS:pbkdf>)
+add_executable(test_pbkdf2_sha2 misc/pbkdf2_test_sha2.c)
+add_executable(test_pbkdf2_sha3 misc/pbkdf2_test_sha3.c)
 
 target_include_directories(test_pbkdf2_sha2 PRIVATE include)
 target_include_directories(test_pbkdf2_sha3 PRIVATE include)
