@@ -11,6 +11,7 @@ set(pbkdf_src
 )
 
 add_library(pbkdf ${pbkdf_src})
+target_link_libraries(pbkdf hashing)
 
 target_include_directories(pbkdf PRIVATE include)
 target_include_directories(pbkdf PRIVATE extras/hashing/include)
@@ -27,8 +28,8 @@ add_executable(test_pbkdf2_sha3 misc/pbkdf2_test_sha3.c)
 target_include_directories(test_pbkdf2_sha2 PRIVATE include)
 target_include_directories(test_pbkdf2_sha3 PRIVATE include)
 
-target_link_libraries(test_pbkdf2_sha2 hashing pbkdf)
-target_link_libraries(test_pbkdf2_sha3 hashing pbkdf)
+target_link_libraries(test_pbkdf2_sha2 pbkdf)
+target_link_libraries(test_pbkdf2_sha3 pbkdf)
 
 include(GNUInstallDirs)
 install(TARGETS pbkdf
