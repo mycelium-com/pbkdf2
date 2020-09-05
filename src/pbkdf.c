@@ -154,7 +154,7 @@ void pbkdf2_sha512(const uint8_t * passwd, size_t passwdlen, const uint8_t * sal
         be32enc(ivec, (uint32_t)(i + 1));
 
         /* Compute U_1 = PRF(P, S || INT(i)). */
-        memcpy(&hctx, &PShctx, sizeof(hmac_sha256_ctx));
+        memcpy(&hctx, &PShctx, sizeof(hmac_sha512_ctx));
         hmac_sha512_update(&hctx, ivec, 4);
         hmac_sha512_final(&hctx, U, SHA256_DIGEST_SIZE);
 
@@ -211,7 +211,7 @@ void pbkdf2_sha3_512(const uint8_t * passwd, size_t passwdlen, const uint8_t * s
         be32enc(ivec, (uint32_t)(i + 1));
 
         /* Compute U_1 = PRF(P, S || INT(i)). */
-        memcpy(&hctx, &PShctx, sizeof(hmac_sha256_ctx));
+        memcpy(&hctx, &PShctx, sizeof(hmac_sha3_512_ctx));
         hmac_sha3_512_update(&hctx, ivec, 4);
         hmac_sha3_512_final(&hctx, U, SHA3_512_DIGEST_LENGTH);
 
@@ -239,5 +239,5 @@ void pbkdf2_sha3_512(const uint8_t * passwd, size_t passwdlen, const uint8_t * s
     }
 
     /* Clean PShctx, since we never called _Final on it. */
-    memset(&PShctx, 0, sizeof(hmac_sha512_ctx));
+    memset(&PShctx, 0, sizeof(hmac_sha3_512_ctx));
 }
