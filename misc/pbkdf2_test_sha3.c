@@ -17,7 +17,7 @@ static void print(const uint8_t *data, int length) {
 int main() {
     pbkdf2_sha3_256(passwd, sizeof(passwd), salt, sizeof(salt), iterations, secret, sizeof(secret));
 
-    printf("Derived key (hmac-sha2-256): ");
+    printf("Derived key (hmac-sha3-256): ");
     print(secret, sizeof(secret));
     printf("\n");
 
