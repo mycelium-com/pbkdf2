@@ -156,7 +156,7 @@ void pbkdf2_sha512(const uint8_t * passwd, size_t passwdlen, const uint8_t * sal
         /* Compute U_1 = PRF(P, S || INT(i)). */
         memcpy(&hctx, &PShctx, sizeof(hmac_sha512_ctx));
         hmac_sha512_update(&hctx, ivec, 4);
-        hmac_sha512_final(&hctx, U, SHA256_DIGEST_SIZE);
+        hmac_sha512_final(&hctx, U, SHA512_DIGEST_SIZE);
 
         /* T_i = U_1 ... */
         memcpy(T, U, SHA512_DIGEST_SIZE);
