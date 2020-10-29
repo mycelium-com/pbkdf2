@@ -45,7 +45,7 @@ int main() {
     uint8_t secret[128];
 
 
-    printf("Testing PBKDF2-HMAC-SHA3-256 against test vectors\n:");
+    printf("Testing PBKDF2-HMAC-SHA3-256 against test vectors:\n");
     
     for (int i = 0; i < 6; ++i) {
         const char *password = test256[i].password;
@@ -62,7 +62,7 @@ int main() {
         printf("\n");
     }
 
-    printf("Testing PBKDF2-HMAC-SHA3-512 against test vectors\n:");
+    printf("Testing PBKDF2-HMAC-SHA3-512 against test vectors:\n");
 
     for (int i = 0; i < 4; ++i) {
         const char *password = test512[i].password;
