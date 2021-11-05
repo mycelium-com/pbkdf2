@@ -198,7 +198,7 @@ int main() {
         const int iterations = test256[i].iterations;
         const int dkLen = test256[i].dkLen;
 
-        pbkdf2_sha256((const uint8_t*) password, password_len, (const uint8_t*) salt, salt_len, iterations, secret, dkLen);
+        myc_pbkdf2_sha256((const uint8_t*) password, password_len, (const uint8_t*) salt, salt_len, iterations, secret, dkLen);
 
         printf("Derived key (hmac-sha256, vector %d): ", i);
         print(secret, dkLen);
@@ -215,7 +215,7 @@ int main() {
         const int iterations = test512[i].iterations;
         const int dkLen = test512[i].dkLen;
 
-        pbkdf2_sha512((const uint8_t*) password, password_len, (const uint8_t*) salt, salt_len, iterations, secret, dkLen);
+        myc_pbkdf2_sha512((const uint8_t*) password, password_len, (const uint8_t*) salt, salt_len, iterations, secret, dkLen);
         printf("Derived key (hmac-sha512, vector %d): ", i);
         print(secret, dkLen);
         printf("\n");
