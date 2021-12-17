@@ -22,6 +22,7 @@ set_target_properties(pbkdf PROPERTIES
    PUBLIC_HEADER "include/pbkdf.h"
 )
 
+if (BUILD_UTILS)
 add_executable(test_pbkdf2_sha2 misc/pbkdf2_test_sha2.c)
 add_executable(test_pbkdf2_sha3 misc/pbkdf2_test_sha3.c)
 
@@ -30,6 +31,7 @@ target_include_directories(test_pbkdf2_sha3 PRIVATE include)
 
 target_link_libraries(test_pbkdf2_sha2 pbkdf)
 target_link_libraries(test_pbkdf2_sha3 pbkdf)
+endif()
 
 include(GNUInstallDirs)
 install(TARGETS pbkdf
