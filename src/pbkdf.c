@@ -97,7 +97,7 @@ void myc_pbkdf2_sha3_256(const uint8_t * passwd, size_t passwdlen, const uint8_t
         be32enc(ivec, (uint32_t)(i + 1));
 
         /* Compute U_1 = PRF(P, S || INT(i)). */
-        memcpy(&hctx, &PShctx, sizeof(myc_hmac_sha256_ctx));
+        memcpy(&hctx, &PShctx, sizeof(myc_hmac_sha3_256_ctx));
         myc_hmac_sha3_256_update(&hctx, ivec, 4);
         myc_hmac_sha3_256_final(&hctx, U, MYC_SHA3_256_DIGEST_LENGTH);
 
